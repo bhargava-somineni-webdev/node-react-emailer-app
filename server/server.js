@@ -11,7 +11,7 @@ const authRoutes = require('./routes/authRoutes');
 
 mongoose.connect(keys.mongoURI);
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5000;
 const app = express();
 
 //tell express to use cookieSession module
