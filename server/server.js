@@ -8,10 +8,12 @@ const keys = require('./config/keys');
 
 
 require('./models/User');
+require('./models/Survey');
 require('./services/passport');
 
 const authRoutes = require('./routes/authRoutes');
 const billingRoutes = require('./routes/billingRoutes');
+const surveyRoutes = require('./routes/surveyRoutes');
 
 mongoose.connect(keys.mongoURI);
 
@@ -37,6 +39,7 @@ app.use(passport.session());
 
 authRoutes(app);
 billingRoutes(app);
+surveyRoutes(app);
 
 if (process.env.NODE_ENV === 'production') {
     //Express will serve up production assests like main.js or main.css files
@@ -48,7 +51,7 @@ if (process.env.NODE_ENV === 'production') {
 
     //Express will serve up index.html file if it doesnt  recognize a route
     const path = require('path');
-    app.get('*', (req, res) => {       
+    app.get('*', (req, res) => {
         res.sendFile(path.resolve(__dirname, '../client', 'build', 'index.html'));
     });
 }
