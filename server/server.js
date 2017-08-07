@@ -47,7 +47,7 @@ if (process.env.NODE_ENV === 'production') {
     //that we do not understand then look into client/build 
     //to see for that file and load that file
     //Eg: client/build/static/css/main.css
-    app.use(express.static('../client/build'));
+    app.use(express.static('client/build'));
 
     //Express will serve up index.html file if it doesnt  recognize a route
     const path = require('path');
